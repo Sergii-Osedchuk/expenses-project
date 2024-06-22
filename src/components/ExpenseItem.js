@@ -1,21 +1,24 @@
 import './ExpenseItem.css';
+import ExpenseDate from './ExpenseDate';
+import Card from './Card';
+import { useState } from 'react';
 
 const ExpenseItem = ({title, date, amount}) => {
-  const month = date.toLocaleString('en-US', { month: 'long'});
-  const year = date.getFullYear();
-  const day = date.toLocaleString('en-US', { day: '2-digit'});
+  const [expenseTitle, setExpenseTitle] = useState(title);
+
+  const clickHandler = () => {
+    setExpenseTitle('Updated!');
+  };
+  
   return (
-    <div className='expense-item'>
-      <div>
-        <div>{month}</div>
-        <div>{year}</div>
-        <div>{day}</div>
-      </div>
+    <Card className='expense-item'>
+      <ExpenseDate date={date}/>
       <div className='expense-item__description'>
-        <h2>{title}</h2>
+        <h2>{expenseTitle}</h2>
         <div className='expense-item__price'>${amount}</div>
       </div>
-    </div>
+      <button onClick={clickHandler}>Change title</button>
+    </Card>
   )
 }
 

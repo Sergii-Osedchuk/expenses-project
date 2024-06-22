@@ -1,9 +1,10 @@
 import ExpenseItem from "./ExpenseItem";
+import Card from "./Card";
 import './ExpensesList.css';
 
 const ExpensesList = ({ expenses }) => {
   return (
-    <div className='expenses'>
+    <Card className='expenses'>
       <ul>
         {expenses.map(expense => 
           <li key={expense.key}>
@@ -11,7 +12,7 @@ const ExpensesList = ({ expenses }) => {
           </li>
       )}
       </ul>
-    </div>
+    </Card>
   )
 }
 
