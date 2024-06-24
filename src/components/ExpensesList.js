@@ -20,7 +20,7 @@ const ExpensesList = ({ expenses }) => {
     <div>
       <Card className='expenses'>
       <ExpensesFilter chooseYear={updateYear} selected = {chosenYear}/>
-      <ExpensesChart expenses={expenses}/>
+      <ExpensesChart expenses={filteredExpenses}/>
         <ul>
           {filteredExpenses.length === 0 ? (<p>There are no expenses this year!</p>) : filteredExpenses.map(expense => 
            <li key={expense.id}>
