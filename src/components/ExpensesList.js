@@ -2,6 +2,7 @@ import ExpenseItem from "./ExpenseItem";
 import Card from "./Card";
 import './ExpensesList.css';
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesChart from "./ExpensesChart";
 import { useState } from "react";
 
 const ExpensesList = ({ expenses }) => {
@@ -19,6 +20,7 @@ const ExpensesList = ({ expenses }) => {
     <div>
       <Card className='expenses'>
       <ExpensesFilter chooseYear={updateYear} selected = {chosenYear}/>
+      <ExpensesChart expenses={expenses}/>
         <ul>
           {filteredExpenses.length === 0 ? (<p>There are no expenses this year!</p>) : filteredExpenses.map(expense => 
            <li key={expense.id}>
